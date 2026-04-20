@@ -1,1 +1,597 @@
-https://claude.ai/chat/b0c1d7f4-ce1e-45de-a11c-b09277ee4b8f?artifactId=pradip_portfolio
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pradip Sonawane | Cloud DevOps Engineer</title>
+<style>
+  :root {
+    --bg:#0a0f1e; --bg2:#0f1629; --card:#131c35; --accent:#00c8ff;
+    --accent2:#7b61ff; --text:#e2e8f0; --muted:#8899bb; --border:#1e2d4a;
+    --grad:linear-gradient(135deg,#00c8ff,#7b61ff);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6;}
+
+  /* NAV */
+  nav{position:fixed;top:0;width:100%;z-index:999;background:rgba(10,15,30,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:64px;}
+  .nav-logo{font-size:1.2rem;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .nav-links{display:flex;gap:1.6rem;list-style:none;}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .3s;}
+  .nav-links a:hover{color:var(--accent);}
+
+  /* HERO */
+  #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:6rem 2rem 4rem;background:radial-gradient(ellipse at 20% 50%,rgba(0,200,255,.07) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(123,97,255,.07) 0%,transparent 60%),var(--bg);position:relative;overflow:hidden;}
+  #hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(255,255,255,.015) 60px,rgba(255,255,255,.015) 61px),repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(255,255,255,.015) 60px,rgba(255,255,255,.015) 61px);}
+  .hero-inner{display:flex;align-items:center;gap:4rem;max-width:1000px;width:100%;position:relative;}
+  .hero-photo{width:180px;height:180px;border-radius:50%;flex-shrink:0;background:var(--card);position:relative;display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(0,200,255,.2);overflow:hidden;}
+  .hero-photo::before{content:'';position:absolute;inset:-3px;border-radius:50%;background:var(--grad);z-index:-1;}
+  .hero-photo svg{width:80px;height:80px;color:var(--muted);}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+  .hero-text h1{font-size:3rem;font-weight:800;line-height:1.1;}
+  .hero-text h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .hero-role{font-size:1.2rem;color:var(--text);margin:.4rem 0 .2rem;font-weight:600;}
+  .hero-loc{color:var(--muted);font-size:1rem;margin-bottom:1.2rem;}
+  .hero-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem;}
+  .tag{background:rgba(0,200,255,.1);border:1px solid rgba(0,200,255,.25);color:var(--accent);border-radius:99px;padding:.25rem .85rem;font-size:.8rem;}
+  .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+  .btn-primary{background:var(--grad);color:#fff;border:none;border-radius:8px;padding:.7rem 1.5rem;font-size:.95rem;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:opacity .3s,transform .2s;}
+  .btn-primary:hover{opacity:.85;transform:translateY(-2px);}
+  .btn-outline{background:transparent;color:var(--accent);border:1.5px solid var(--accent);border-radius:8px;padding:.7rem 1.5rem;font-size:.95rem;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:background .3s,transform .2s;}
+  .btn-outline:hover{background:rgba(0,200,255,.1);transform:translateY(-2px);}
+
+  /* SECTIONS */
+  section{padding:5rem 2rem;max-width:1000px;margin:0 auto;}
+  .section-title{font-size:1.8rem;font-weight:700;margin-bottom:2.5rem;display:flex;align-items:center;gap:.75rem;}
+  .section-title::after{content:'';flex:1;height:1px;background:var(--border);}
+  .section-title span{color:var(--accent);}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+  .about-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;}
+  .about-card h3{color:var(--accent);font-size:.85rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;}
+
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1rem;}
+  .skill-chip{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;font-size:.85rem;color:var(--text);transition:border-color .3s,transform .2s,box-shadow .3s;}
+  .skill-chip:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,200,255,.15);}
+  .skill-chip .icon{font-size:1.5rem;margin-bottom:.4rem;}
+
+  /* TIMELINE */
+  .timeline{position:relative;padding-left:2rem;}
+  .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--border);border-radius:2px;}
+  .tl-item{position:relative;margin-bottom:2rem;}
+  .tl-dot{position:absolute;left:-2.4rem;top:.35rem;width:14px;height:14px;border-radius:50%;background:var(--grad);box-shadow:0 0 12px rgba(0,200,255,.5);}
+  .tl-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:border-color .3s;}
+  .tl-card:hover{border-color:var(--accent);}
+  .tl-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;margin-bottom:.75rem;}
+  .tl-title{font-size:1.05rem;font-weight:700;}
+  .tl-company{color:var(--accent);font-size:.9rem;font-weight:600;}
+  .tl-date{background:rgba(123,97,255,.15);border:1px solid rgba(123,97,255,.3);color:#a78bff;border-radius:99px;padding:.2rem .8rem;font-size:.78rem;white-space:nowrap;}
+  .tl-desc{color:var(--muted);font-size:.9rem;}
+  .tl-bullets{list-style:none;margin-top:.75rem;display:flex;flex-direction:column;gap:.4rem;}
+  .tl-bullets li{color:var(--muted);font-size:.88rem;padding-left:1rem;position:relative;}
+  .tl-bullets li::before{content:'▹';position:absolute;left:0;color:var(--accent);}
+
+  /* CERTS */
+  .certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;}
+  .cert-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;display:flex;align-items:center;gap:1rem;transition:border-color .3s,transform .2s;}
+  .cert-card:hover{border-color:var(--accent);transform:translateY(-3px);}
+  .cert-icon{font-size:2.2rem;flex-shrink:0;}
+  .cert-info h4{font-size:.95rem;font-weight:700;margin-bottom:.25rem;}
+  .cert-info p{color:var(--muted);font-size:.82rem;}
+  .cert-badge{display:inline-block;margin-top:.4rem;background:rgba(0,200,255,.1);border:1px solid rgba(0,200,255,.25);color:var(--accent);border-radius:99px;padding:.15rem .7rem;font-size:.75rem;}
+
+  /* CONTACT */
+  .contact-wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:2rem;}
+  .contact-info{display:flex;flex-direction:column;gap:1rem;}
+  .contact-link{display:flex;align-items:center;gap:.75rem;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;text-decoration:none;color:var(--text);transition:border-color .3s,transform .2s;}
+  .contact-link:hover{border-color:var(--accent);transform:translateX(4px);}
+  .contact-link .cl-icon{font-size:1.3rem;}
+  .contact-link span{font-size:.9rem;}
+  .contact-form{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.75rem;display:flex;flex-direction:column;gap:1rem;}
+  .form-group{display:flex;flex-direction:column;gap:.4rem;}
+  .form-group label{font-size:.82rem;color:var(--muted);}
+  .form-group input,.form-group textarea{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;color:var(--text);font-size:.9rem;font-family:inherit;outline:none;transition:border-color .3s;resize:vertical;}
+  .form-group input:focus,.form-group textarea:focus{border-color:var(--accent);}
+  .form-msg{display:none;background:rgba(0,200,255,.1);border:1px solid rgba(0,200,255,.3);color:var(--accent);border-radius:8px;padding:.75rem 1rem;font-size:.88rem;text-align:center;}
+  footer{text-align:center;padding:2rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border);}
+
+  /* RESUME MODAL */
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:2000;justify-content:center;align-items:flex-start;padding:2rem 1rem;overflow-y:auto;}
+  .modal-overlay.open{display:flex;}
+  .modal-box{background:#fff;color:#111;border-radius:12px;max-width:780px;width:100%;padding:3rem 3rem 2rem;position:relative;font-family:'Segoe UI',sans-serif;}
+  .modal-close{position:absolute;top:1rem;right:1.2rem;background:none;border:none;font-size:1.6rem;cursor:pointer;color:#555;}
+  .modal-close:hover{color:#000;}
+  .modal-actions{display:flex;gap:1rem;justify-content:flex-end;margin-bottom:1.5rem;flex-wrap:wrap;}
+  .print-btn{background:linear-gradient(135deg,#00c8ff,#7b61ff);color:#fff;border:none;border-radius:8px;padding:.6rem 1.4rem;font-size:.9rem;font-weight:600;cursor:pointer;}
+  .print-btn:hover{opacity:.85;}
+
+  /* RESUME CONTENT */
+  .resume h2{font-size:1.6rem;font-weight:800;color:#111;margin-bottom:.1rem;}
+  .resume .r-role{font-size:1rem;color:#555;margin-bottom:.5rem;}
+  .resume .r-contact{font-size:.82rem;color:#444;margin-bottom:1.2rem;display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;}
+  .resume .r-contact a{color:#0066cc;text-decoration:none;}
+  .resume hr{border:none;border-top:2px solid #222;margin:1rem 0 .75rem;}
+  .resume h3{font-size:.95rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#111;margin-bottom:.6rem;}
+  .resume .r-summary{font-size:.87rem;color:#333;margin-bottom:1.2rem;}
+  .resume .skills-table{width:100%;border-collapse:collapse;font-size:.82rem;margin-bottom:1.2rem;}
+  .resume .skills-table td{padding:.3rem .5rem;vertical-align:top;border:1px solid #ddd;}
+  .resume .skills-table td:first-child{font-weight:600;white-space:nowrap;width:130px;background:#f5f5f5;}
+  .resume .r-job{margin-bottom:1.1rem;}
+  .resume .r-job-header{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.2rem;}
+  .resume .r-job-title{font-weight:700;font-size:.9rem;}
+  .resume .r-job-company{font-size:.85rem;color:#555;}
+  .resume .r-job-date{font-size:.82rem;color:#777;}
+  .resume .r-job ul{padding-left:1.2rem;margin-top:.4rem;}
+  .resume .r-job ul li{font-size:.83rem;color:#333;margin-bottom:.2rem;}
+  .resume .r-certs{display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;font-size:.85rem;color:#333;margin-bottom:1.2rem;}
+  .resume .r-certs span::before{content:'• ';}
+  .resume .r-edu{font-size:.85rem;color:#333;margin-bottom:.3rem;}
+  .resume .r-edu strong{font-weight:700;}
+
+  /* ANIMATIONS */
+  .fade-up{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
+  .fade-up.visible{opacity:1;transform:translateY(0);}
+
+  @media(max-width:700px){
+    .hero-inner{flex-direction:column;text-align:center;gap:2rem;}
+    .hero-text h1{font-size:2rem;}
+    .hero-btns{justify-content:center;}
+    .hero-tags{justify-content:center;}
+    .about-grid{grid-template-columns:1fr;}
+    .contact-wrap{grid-template-columns:1fr;}
+    nav{padding:0 1rem;}
+    .nav-links{gap:1rem;}
+    .nav-links a{font-size:.8rem;}
+    .modal-box{padding:2rem 1.2rem 1.5rem;}
+  }
+  @media print{
+    .modal-actions,.modal-close{display:none!important;}
+    .modal-overlay{display:block!important;position:static;background:none;padding:0;}
+    .modal-box{box-shadow:none;border-radius:0;}
+    body>*:not(.modal-overlay){display:none!important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">PS</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-inner">
+    <div class="hero-photo">
+        <img id="profile-img" src="https://i.postimg.cc/ncNvNfjM/pradip-photo-JPEG.png" alt="Pradip Sonawane" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"/>
+        <svg id="profile-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" style="width:80px;height:80px;color:var(--muted);display:none;">
+          <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+        </svg>
+      </div>
+    <div class="hero-text">
+      <h1>Pradip <span>Sonawane</span></h1>
+      <p class="hero-role">Cloud DevOps Engineer</p>
+      <p class="hero-loc">📍 Pune, India 🇮🇳</p>
+      <div class="hero-tags">
+        <span class="tag">Azure DevOps</span>
+        <span class="tag">Kubernetes / AKS</span>
+        <span class="tag">Terraform</span>
+        <span class="tag">GitLab CI/CD</span>
+        <span class="tag">Docker</span>
+        <span class="tag">SRE</span>
+      </div>
+      <div class="hero-btns">
+        <a class="btn-primary" href="https://drive.google.com/uc?export=download&id=1Snpmc8sfaFPbMi-iFFwLmGMeKEc_xnjZ" download="Pradip_Sonawane_Resume.docx" target="_blank">⬇ Download Resume</a>
+        <a href="https://linkedin.com/in/pradip-s-6b9a4b187" target="_blank" class="btn-outline">🔗 LinkedIn</a>
+        <a href="https://github.com/YOUR_HANDLE" target="_blank" class="btn-outline">🐙 GitHub</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-title">About <span>Me</span></div>
+  <div class="about-grid fade-up">
+    <div class="about-card">
+      <h3>👨‍💻 Who I Am</h3>
+      <p>Cloud DevOps Engineer with <strong>7 years of total IT experience</strong>, including <strong>4 years focused on Cloud DevOps</strong> — designing CI/CD pipelines, container orchestration, and cloud infrastructure on Azure. Passionate about building reliable, scalable, and secure systems.</p>
+    </div>
+    <div class="about-card">
+      <h3>📍 Location</h3>
+      <p>Charholi Kurd, Pune, Maharashtra, India. Open to Pune-based opportunities and remote/hybrid roles.</p>
+    </div>
+    <div class="about-card">
+      <h3>🏥 Domain Experience</h3>
+      <p>Hands-on experience in <strong>Healthcare IT</strong>, managing CI/CD pipelines and cloud infrastructure for Patient Management, Medical Records, and Billing & Claims applications.</p>
+    </div>
+    <div class="about-card">
+      <h3>🎯 Career Focus</h3>
+      <p>Targeting Senior DevOps Engineer, SRE, and Platform Engineer roles. Multi-cloud experience across Azure, AWS, and GCP with a strong focus on automation and reliability.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-title">Technical <span>Skills</span></div>
+  <div class="skills-grid fade-up">
+    <div class="skill-chip"><div class="icon">🔧</div>GitLab CI/CD</div>
+    <div class="skill-chip"><div class="icon">🌿</div>Terraform</div>
+    <div class="skill-chip"><div class="icon">🐳</div>Docker</div>
+    <div class="skill-chip"><div class="icon">⎈</div>Kubernetes / AKS</div>
+    <div class="skill-chip"><div class="icon">⛵</div>Helm</div>
+    <div class="skill-chip"><div class="icon">☁️</div>Microsoft Azure</div>
+    <div class="skill-chip"><div class="icon">🟠</div>AWS</div>
+    <div class="skill-chip"><div class="icon">🔵</div>Google Cloud</div>
+    <div class="skill-chip"><div class="icon">📊</div>Azure Monitor</div>
+    <div class="skill-chip"><div class="icon">🔍</div>Log Analytics</div>
+    <div class="skill-chip"><div class="icon">🛡️</div>SonarQube</div>
+    <div class="skill-chip"><div class="icon">🐙</div>Docker Hub</div>
+    <div class="skill-chip"><div class="icon">🐚</div>Bash / Python</div>
+    <div class="skill-chip"><div class="icon">📌</div>Jira</div>
+    <div class="skill-chip"><div class="icon">🎫</div>ServiceNow</div>
+    <div class="skill-chip"><div class="icon">🔑</div>Azure Key Vault</div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-title">Work <span>Experience</span></div>
+  <div class="timeline fade-up">
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">Azure DevOps Engineer</div>
+            <div class="tl-company">Xoriant Solutions · Client: Vantive Healthcare</div>
+          </div>
+          <span class="tl-date">Sep 2022 – Present</span>
+        </div>
+        <ul class="tl-bullets">
+          <li>Designed and maintained GitLab CI/CD pipelines for 3 healthcare projects — Patient Management, Medical Records, and Billing & Claims — covering build, test, SonarQube scan, Docker push, and AKS deployment stages.</li>
+          <li>Provisioned and managed Azure infrastructure using Terraform — AKS clusters, VNets, NSGs, Key Vault, and storage accounts — across dev, staging, and production environments.</li>
+          <li>Managed containerized microservices on AKS; performed rolling updates, pod scaling, and resolved CrashLoopBackOff and OOMKilled incidents.</li>
+          <li>Configured Azure Monitor and Log Analytics dashboards to track pipeline health and application performance; reduced incident response time via proactive alerting.</li>
+          <li>Managed Docker Hub repositories and image lifecycle with tagging strategies aligned to GitLab pipeline stages.</li>
+          <li>Coordinated deployments via Jira sprint boards and raised production Change Requests in ServiceNow; ensured zero unauthorized production changes.</li>
+          <li>Collaborated in Agile/Scrum ceremonies within a 6-member DevOps team, maintaining sprint velocity and on-time delivery.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">Technical Support Engineer</div>
+            <div class="tl-company">Shell Infotech · Client: Infosys</div>
+          </div>
+          <span class="tl-date">Jan 2022 – Aug 2022</span>
+        </div>
+        <ul class="tl-bullets">
+          <li>Managed AWS cloud services including EC2, S3, IAM, and CloudWatch for application monitoring and access control.</li>
+          <li>Assisted in Terraform-based provisioning of cloud resources for consistent infrastructure setup across environments.</li>
+          <li>Collaborated with development teams to deploy and manage applications, resolving cloud infrastructure issues within SLA.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">Technical Support Engineer</div>
+            <div class="tl-company">Hitachi System Microclinic · Client: Mahle</div>
+          </div>
+          <span class="tl-date">Jul 2021 – Jan 2022</span>
+        </div>
+        <ul class="tl-bullets">
+          <li>Provided L1/L2 technical support for Windows environments; resolved tickets within defined SLA timelines.</li>
+          <li>Assisted in Terraform-based provisioning of AWS resources and supported cloud infrastructure maintenance tasks.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">Desktop Support Engineer</div>
+            <div class="tl-company">Experis IT / Onward eServices · Client: Skoda-Volkswagen India</div>
+          </div>
+          <span class="tl-date">Oct 2018 – Jul 2021</span>
+        </div>
+        <ul class="tl-bullets">
+          <li>Handled end-user hardware/software support, network troubleshooting, and system migrations for enterprise environment.</li>
+          <li>Managed incident resolution, system upgrades, and remote support to minimize business disruption.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-title">Edu<span>cation</span></div>
+  <div class="timeline fade-up">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">M.A.</div>
+            <div class="tl-company">Savitribai Phule Pune University</div>
+          </div>
+          <span class="tl-date">2015</span>
+        </div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">B.A.</div>
+            <div class="tl-company">Savitribai Phule Pune University</div>
+          </div>
+          <span class="tl-date">2013</span>
+        </div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">Diploma in Computer Education (D.C.Ed)</div>
+            <div class="tl-company">Pragati Foundation, Mumbai</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-title">Certifi<span>cations</span></div>
+  <div class="certs-grid fade-up">
+    <div class="cert-card">
+      <div class="cert-icon">🟠</div>
+      <div class="cert-info">
+        <h4>AWS DevOps Engineer – Professional</h4>
+        <p>Amazon Web Services</p>
+        <span class="cert-badge">DOP-C02 ✓</span>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🟠</div>
+      <div class="cert-info">
+        <h4>AWS Cloud Practitioner</h4>
+        <p>Amazon Web Services</p>
+        <span class="cert-badge">CLF ✓</span>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🔵</div>
+      <div class="cert-info">
+        <h4>Google Associate Cloud Engineer</h4>
+        <p>Google Cloud Platform</p>
+        <span class="cert-badge">ACE ✓</span>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🌐</div>
+      <div class="cert-info">
+        <h4>Cisco Certified Network Associate</h4>
+        <p>Cisco Systems</p>
+        <span class="cert-badge">CCNA ✓</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-title">Get In <span>Touch</span></div>
+  <div class="contact-wrap fade-up">
+    <div class="contact-info">
+      <a href="mailto:pradipsona50@gmail.com" class="contact-link">
+        <span class="cl-icon">📧</span><span>pradipsona50@gmail.com</span>
+      </a>
+      <a href="tel:+918888221185" class="contact-link">
+        <span class="cl-icon">📱</span><span>+91 88882 21185</span>
+      </a>
+      <a href="https://linkedin.com/in/pradip-s-6b9a4b187" target="_blank" class="contact-link">
+        <span class="cl-icon">🔗</span><span>LinkedIn Profile</span>
+      </a>
+      <a href="https://github.com/YOUR_HANDLE" target="_blank" class="contact-link">
+        <span class="cl-icon">🐙</span><span>GitHub Profile</span>
+      </a>
+      <a class="contact-link">
+        <span class="cl-icon">📍</span><span>Pune, Maharashtra, India</span>
+      </a>
+    </div>
+    <div class="contact-form">
+      <div class="form-group"><label>Your Name</label><input type="text" id="cf-name" placeholder="John Doe"/></div>
+      <div class="form-group"><label>Your Email</label><input type="email" id="cf-email" placeholder="john@company.com"/></div>
+      <div class="form-group"><label>Message</label><textarea id="cf-msg" rows="4" placeholder="Hi Pradip, I'd like to discuss an opportunity..."></textarea></div>
+      <button class="btn-primary" onclick="handleContact()" style="width:100%;justify-content:center;">Send Message ✉️</button>
+      <div class="form-msg" id="form-msg">✅ Thanks! Pradip will get back to you soon.</div>
+    </div>
+  </div>
+</section>
+
+<footer><p>© 2026 Pradip Sonawane · Cloud DevOps Engineer · Pune, India</p></footer>
+
+<!-- RESUME MODAL -->
+<div class="modal-overlay" id="resumeModal" onclick="closeOnBg(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeResume()">✕</button>
+    <div class="modal-actions">
+      <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    </div>
+    <div class="resume">
+      <h2>PRADIP SONAWANE</h2>
+      <div class="r-role">Cloud DevOps Engineer</div>
+      <div class="r-contact">
+        <span>📍 Pune, India</span>
+        <span>📱 +91 88882 21185</span>
+        <a href="mailto:pradipsona50@gmail.com">📧 pradipsona50@gmail.com</a>
+        <a href="https://linkedin.com/in/pradip-s-6b9a4b187" target="_blank">🔗 LinkedIn</a>
+      </div>
+
+      <hr/>
+      <h3>Professional Summary</h3>
+      <p class="r-summary">Azure DevOps Engineer with 4+ years of hands-on experience designing and managing CI/CD pipelines, container orchestration, and cloud infrastructure on Azure. Skilled in GitLab CI/CD, Kubernetes (AKS), Terraform, Docker, and Azure Monitor. Experienced in supporting healthcare cloud environments with a focus on reliability, security compliance, and automation. Holds AWS DevOps Professional (DOP-C02), Google Associate Cloud Engineer, and CCNA certifications.</p>
+
+      <hr/>
+      <h3>Technical Skills</h3>
+      <table class="skills-table">
+        <tr><td>CI/CD</td><td>GitLab CI/CD, GitLab Pipelines, YAML-based workflows</td></tr>
+        <tr><td>Containers</td><td>Docker, Docker Hub, Kubernetes (AKS), Helm</td></tr>
+        <tr><td>IaC</td><td>Terraform, Azure Resource Manager (ARM)</td></tr>
+        <tr><td>Cloud</td><td>Microsoft Azure (AKS, Monitor, Log Analytics, Key Vault), AWS</td></tr>
+        <tr><td>Monitoring</td><td>Azure Monitor, Log Analytics Workspace, Application Insights</td></tr>
+        <tr><td>Code Quality</td><td>SonarQube, GitLab SAST</td></tr>
+        <tr><td>Scripting</td><td>Python, Bash</td></tr>
+        <tr><td>Ticketing</td><td>Jira (sprint tracking), ServiceNow (Change Requests)</td></tr>
+        <tr><td>Version Control</td><td>GitLab, Git</td></tr>
+      </table>
+
+      <hr/>
+      <h3>Work Experience</h3>
+      <div class="r-job">
+        <div class="r-job-header">
+          <div><div class="r-job-title">Azure DevOps Engineer — Xoriant Solutions (Client: Vantive Healthcare)</div></div>
+          <div class="r-job-date">Sep 2022 – Present</div>
+        </div>
+        <ul>
+          <li>Designed and maintained GitLab CI/CD pipelines for 3 healthcare projects covering build, test, SonarQube scan, Docker push, and AKS deployment stages.</li>
+          <li>Provisioned Azure infrastructure using Terraform — AKS clusters, VNets, NSGs, Key Vault, and storage accounts across dev, staging, and production.</li>
+          <li>Managed containerized microservices on AKS; performed rolling updates, pod scaling, and resolved CrashLoopBackOff and OOMKilled incidents.</li>
+          <li>Configured Azure Monitor and Log Analytics dashboards; reduced incident response time via proactive alerting.</li>
+          <li>Coordinated deployments via Jira and raised production Change Requests in ServiceNow; ensured zero unauthorized changes in production.</li>
+          <li>Collaborated in Agile/Scrum ceremonies within a 6-member DevOps team.</li>
+        </ul>
+      </div>
+      <div class="r-job">
+        <div class="r-job-header">
+          <div><div class="r-job-title">Technical Support Engineer — Shell Infotech (Client: Infosys)</div></div>
+          <div class="r-job-date">Jan 2022 – Aug 2022</div>
+        </div>
+        <ul>
+          <li>Managed AWS cloud services (EC2, S3, IAM, CloudWatch) for application monitoring and access control.</li>
+          <li>Assisted in Terraform-based provisioning and resolved cloud infrastructure issues within SLA.</li>
+        </ul>
+      </div>
+      <div class="r-job">
+        <div class="r-job-header">
+          <div><div class="r-job-title">Technical Support Engineer — Hitachi System Microclinic (Client: Mahle)</div></div>
+          <div class="r-job-date">Jul 2021 – Jan 2022</div>
+        </div>
+        <ul>
+          <li>Provided L1/L2 support for Windows environments and Terraform-based AWS provisioning.</li>
+        </ul>
+      </div>
+      <div class="r-job">
+        <div class="r-job-header">
+          <div><div class="r-job-title">Desktop Support Engineer — Experis IT / Onward eServices (Client: Skoda-Volkswagen India)</div></div>
+          <div class="r-job-date">Oct 2018 – Jul 2021</div>
+        </div>
+        <ul>
+          <li>Handled end-user hardware/software support, network troubleshooting, and system migrations.</li>
+          <li>Managed incident resolution and remote support to minimize business disruption.</li>
+        </ul>
+      </div>
+
+      <hr/>
+      <h3>Certifications</h3>
+      <div class="r-certs">
+        <span>AWS DevOps Engineer Professional (DOP-C02)</span>
+        <span>AWS Cloud Practitioner</span>
+        <span>Google Associate Cloud Engineer</span>
+        <span>CCNA – Cisco Certified Network Associate</span>
+      </div>
+
+      <hr/>
+      <h3>Education</h3>
+      <div class="r-edu"><strong>M.A.</strong> — Savitribai Phule Pune University, 2015</div>
+      <div class="r-edu"><strong>B.A.</strong> — Savitribai Phule Pune University, 2013</div>
+      <div class="r-edu"><strong>Diploma in Computer Education (D.C.Ed)</strong> — Pragati Foundation, Mumbai</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Load saved photo
+  async function loadPhoto() {
+    try {
+      const r = await window.storage.get('profile_photo');
+      if (r && r.value) {
+        document.getElementById('profile-img').src = r.value;
+        document.getElementById('profile-img').style.display = 'block';
+        document.getElementById('profile-placeholder').style.display = 'none';
+      }
+    } catch(e) {}
+  }
+  loadPhoto();
+
+  function uploadPhoto(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = async function(ev) {
+      const b64 = ev.target.result;
+      document.getElementById('profile-img').src = b64;
+      document.getElementById('profile-img').style.display = 'block';
+      document.getElementById('profile-placeholder').style.display = 'none';
+      try { await window.storage.set('profile_photo', b64); } catch(e) {}
+    };
+    reader.readAsDataURL(file);
+  }
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold:.1});
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  document.querySelectorAll('.skill-chip').forEach((c,i) => { c.style.transitionDelay=`${i*40}ms`; });
+
+  function openResume(){ document.getElementById('resumeModal').classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeResume(){ document.getElementById('resumeModal').classList.remove('open'); document.body.style.overflow=''; }
+  function closeOnBg(e){ if(e.target.id==='resumeModal') closeResume(); }
+
+  function handleContact(){
+    const n=document.getElementById('cf-name').value.trim();
+    const e=document.getElementById('cf-email').value.trim();
+    const m=document.getElementById('cf-msg').value.trim();
+    if(!n||!e||!m){alert('Please fill in all fields.');return;}
+    const msg=document.getElementById('form-msg');
+    msg.style.display='block';
+    document.getElementById('cf-name').value='';
+    document.getElementById('cf-email').value='';
+    document.getElementById('cf-msg').value='';
+    setTimeout(()=>msg.style.display='none',5000);
+  }
+</script>
+</body>
+</html>
